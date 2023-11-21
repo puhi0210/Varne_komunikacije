@@ -98,9 +98,12 @@ allKeys = []
 for i in alphabet:
     for j in alphabet:
         allKeys. append(i + j + "000000")
-
+"""
 for i in allKeys:
     print(decrypt(bin2text("1111011101000011001110010110111101110011100000000011110100111010"),i))
+    print(i)
+
+"""
 
 
 # Naloga 7
