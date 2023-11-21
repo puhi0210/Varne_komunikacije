@@ -87,3 +87,35 @@ def ECB(cistopis, kljuc, smer):
 
 print(ECB("skrivnostskrivnostooo", "geslogeslo", 0))
 print(ECB(ECB("skrivnostblabla", "geslogeslo", 0), "geslogeslo", 1))
+
+
+
+
+# Domača naloga
+# Naloga 6
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+allKeys = []
+for i in alphabet:
+    for j in alphabet:
+        allKeys. append(i + j + "000000")
+
+for i in allKeys:
+    print(decrypt(bin2text("1111011101000011001110010110111101110011100000000011110100111010"),i))
+
+
+# Naloga 7
+def  fun_3TDEA(cistopis, kljuc1, kljuc2, kljuc3, smer): # smer: 1=>encript, 0=>decript
+    if smer:
+        return encrypt(decrypt(encrypt(cistopis, kljuc1),kljuc2),kljuc3)
+    else:
+        return decrypt(encrypt(decrypt(cistopis, kljuc3),kljuc2),kljuc1)
+
+def  fun_2TDEA(cistopis, kljuc1, kljuc2, smer): # smer: 1=>encript, 0=>decript
+    if smer:
+        return fun_3TDEA(cistopis, kljuc1, kljuc2, kljuc1, 1)
+    else:
+        return fun_3TDEA(cistopis, kljuc1, kljuc2, kljuc1, 0)
+       
+       
+print(fun_2TDEA("cistopis","12345678","87654321",1))
+print(fun_2TDEA(fun_2TDEA("cistopis","12345678","87654321",1),"12345678","87654321",0))
